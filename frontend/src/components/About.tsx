@@ -1,8 +1,12 @@
+import Link from "next/link";
+
 const FEATURES = [
   {
     title: "Curated template library",
     description:
       "Start from a library of standard, attorney-quality templates covering NDAs, service agreements, DPAs, and more — not a blank page.",
+    href: "/documents",
+    linkLabel: "Browse the library",
   },
   {
     title: "AI-assisted customization",
@@ -37,6 +41,14 @@ export default function About() {
               <p className="mt-2 text-sm leading-6 text-foreground/70">
                 {feature.description}
               </p>
+              {feature.href && (
+                <Link
+                  href={feature.href}
+                  className="mt-2 inline-block text-sm font-medium text-brand hover:underline"
+                >
+                  {feature.linkLabel} →
+                </Link>
+              )}
             </div>
           ))}
         </div>
