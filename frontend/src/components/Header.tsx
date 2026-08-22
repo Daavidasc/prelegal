@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 const NAV_LINKS = [
+  { href: "/documents", label: "Templates" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
@@ -14,9 +17,15 @@ export default function Header() {
           <ul className="hidden items-center gap-8 text-sm font-medium text-foreground/70 sm:flex">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="transition-colors hover:text-foreground">
-                  {link.label}
-                </a>
+                {link.href.startsWith("/") ? (
+                  <Link href={link.href} className="transition-colors hover:text-foreground">
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a href={link.href} className="transition-colors hover:text-foreground">
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

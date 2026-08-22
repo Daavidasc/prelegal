@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# synced from repo-root templates/ + catalog.json — see scripts/sync-templates.mjs
+/src/data/
+
 # production
 /build
 
